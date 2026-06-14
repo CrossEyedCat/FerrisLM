@@ -1,0 +1,17 @@
+/target/
+**/*.rs.bk
+*.pdb
+
+# Checkpoints and training artifacts
+/checkpoints/
+
+# Large datasets (prepare with examples/prepare_data)
+/data/wikitext103.txt
+/data/wikitext103_tokens.bin
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db

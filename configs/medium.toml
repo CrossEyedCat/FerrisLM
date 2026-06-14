@@ -1,0 +1,31 @@
+name = "medium"
+vocab_size = 32000
+hidden_dim = 1536
+num_layers = 27
+num_heads = 16
+head_dim = 96
+kv_compression_dim = 512
+query_compression_dim = 1536
+rope_head_dim = 48
+compress_queries = false
+num_shared_experts = 2
+num_routed_experts = 32
+num_experts_per_token = 4
+expert_intermediate_dim = 4096
+moe_aux_loss_alpha = 0.003
+weight_init_std = 0.006
+rms_norm_eps = 1e-6
+max_seq_len = 512
+tie_word_embeddings = true
+
+[training]
+batch_size = 1
+seq_len = 512
+learning_rate = 4.2e-4
+weight_decay = 0.1
+beta1 = 0.9
+beta2 = 0.95
+warmup_steps = 2000
+grad_clip = 1.0
+total_steps = 100000
+checkpoint_every = 10000

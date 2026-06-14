@@ -1,0 +1,4 @@
+the quick brown fox jumps over the lazy dog
+deepseek transformer rust machine learning
+hello world from rust neural network training
+mixture of experts latent attention architecture

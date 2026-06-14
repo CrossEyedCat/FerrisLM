@@ -1,0 +1,53 @@
+[package]
+name = "ferris-lm"
+version = "0.2.0"
+edition = "2021"
+description = "FerrisLM — DeepSeek-V2-like MLA + MoE language model in Rust (Candle/CUDA)"
+license = "MIT"
+
+[lib]
+name = "ferris_lm"
+path = "src/lib.rs"
+
+[[example]]
+name = "train"
+path = "examples/train.rs"
+
+[[example]]
+name = "generate"
+path = "examples/generate.rs"
+
+[[example]]
+name = "prepare_data"
+path = "examples/prepare_data.rs"
+
+[dependencies]
+candle-core = "0.9"
+candle-nn = "0.9"
+anyhow = "1"
+serde = { version = "1.0", features = ["derive"] }
+toml = "0.8"
+clap = { version = "4.5", features = ["derive"] }
+safetensors = "0.4"
+thiserror = "2.0"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+memmap2 = "0.9"
+serde_json = "1.0"
+rand = "0.8"
+
+[dev-dependencies]
+approx = "0.5"
+
+[patch.crates-io]
+bindgen_cuda = { path = "vendor/bindgen_cuda" }
+
+[features]
+default = ["cuda"]
+cuda = ["candle-core/cuda", "candle-nn/cuda"]
+cudnn = ["cuda", "candle-core/cudnn"]
+cpu = []
+
+[profile.release]
+lto = true
+codegen-units = 1
